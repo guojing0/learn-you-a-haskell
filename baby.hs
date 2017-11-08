@@ -26,3 +26,16 @@ len :: (Num b) => [a] -> b
 len [] = 0
 len (_:rest) = 1 + len rest
 
+head' :: [a] -> a
+head' [] = error "Cannot be empty list."
+head' (x:_) = x
+
+last' :: [a] -> a
+last' [] = error "Cannot be empty list."
+last' [x] = x
+last' (_ : x) = last' x
+
+sum' :: (Num a) => [a] -> a
+sum' [] = 0
+sum' (fst : rest) = fst + sum' rest
+
